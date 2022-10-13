@@ -99,4 +99,18 @@ public class AddressBook {
         System.out.println(name + " not found!");
 
     }
+	
+	public void deleteContact(){
+        System.out.println("Enter person name : ");
+        String name = sc.next();
+        for(Contact contact : contacts){
+            if(contact.getFirstName().equals(name) || contact.getLastName().equals(name)){
+                contacts.remove(contact);
+                //System.out.println(contact.getFirstName() +" removed!");
+                System.out.println("Contact Deleted Successfully...!");
+                return;
+            }
+        }
+        System.out.println(name + " not found!");
+    }
 }
