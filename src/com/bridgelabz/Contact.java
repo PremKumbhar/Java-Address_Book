@@ -101,10 +101,10 @@ public class Contact {
 	}
 
 	/**
-	 * @param zip the zip to set
+	 * @param i the zip to set
 	 */
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setZip(int i) {
+		this.zip = i;
 	}
 
 	/**
