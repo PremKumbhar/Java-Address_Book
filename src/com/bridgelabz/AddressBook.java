@@ -106,7 +106,6 @@ public class AddressBook {
         for(Contact contact : contacts){
             if(contact.getFirstName().equals(name) || contact.getLastName().equals(name)){
                 contacts.remove(contact);
-                //System.out.println(contact.getFirstName() +" removed!");
                 System.out.println("Contact Deleted Successfully...!");
                 return;
             }
