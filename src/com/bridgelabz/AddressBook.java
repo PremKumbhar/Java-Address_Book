@@ -146,4 +146,13 @@ public class AddressBook {
              entries.getValue().getContactList().stream().filter(p -> p.getState().equalsIgnoreCase(state)).forEach(p -> System.out.println(p));
          }
      }
+     // method to get number of contact persons by city
+     public static void  getCountByCity(HashMap<String, AddressBook> addressBookHashMap,String city) {
+         long count = 0;
+         for(Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
+             long cnt = entries.getValue().getContactList().stream().filter(p -> p.getCity().equals(city)).count();
+             count += cnt;
+         }
+         System.out.println(count + " Contacts in " + city);
+     }
 }
