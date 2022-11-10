@@ -125,4 +125,11 @@ public class AddressBook {
          boolean result = contacts.stream().filter(contact -> contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)).count() > 0;
          return result;
      }
+     public void searchByCityOrState(String location){
+         contacts.stream().forEach(contact -> {
+             if (contact.getCity().equals(location) || contact.getState().equals(location)){
+                 System.out.println(contact);
+             }
+         });
+     }
 }
