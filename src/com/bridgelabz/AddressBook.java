@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -112,4 +113,16 @@ public class AddressBook {
         }
         System.out.println(name + " not found!");
     }
+	public List<Contact> getContactList(){
+        return contacts;
+    }
+    /*
+     * This method is used to check the duplicate entry
+     * if first and last name already exists in addressbook then it will not return true i.e. duplicate entry
+     * if duplicate return true else return false
+     * */
+     public boolean isDuplicate(String firstName, String lastName){
+         boolean result = contacts.stream().filter(contact -> contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)).count() > 0;
+         return result;
+     }
 }
