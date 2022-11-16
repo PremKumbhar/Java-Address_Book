@@ -21,10 +21,11 @@ public class AddressBookMain {
         HashMap<String, AddressBook> addressBookHashMap = new HashMap<>();
 
         while (true){
-            System.out.println("0.Exit \n1.Add Contact \n2.Display Contact \n3.Edit Contact \n4.Delete Contact \n5.Add new Address Book" +
-                    "\n6.Display available address books \n7.Display all address books \n8.Write addressbook to file "
-                    + "\n9.Read addressbook from file \n10.Search by city or state "
-                    + "\n11.View Person by city or state \n12.Get person count by city \n13.sort contacts by name / City / State");
+            System.out.println("0.Exit \n1.Add Contact \n2.Display Contact \n3.Edit Contact "
+            		+ "\n4.Delete Contact \n5.Add new Address Book" +
+                    "\n6.Display available address books \n7.Display all address books "
+                    + "\n8.Write addressbook to file "
+                    + "\n9.Read addressbook from file");
             int ch = sc.nextInt();
             switch (ch){
                 case 0:
@@ -129,54 +130,6 @@ public class AddressBookMain {
                         }
                     }catch (Exception exception){
                         System.out.println(exception);
-                    }
-                    break;
-                case 10:
-                    Set<Map.Entry<String, AddressBook>> addressBook2 = addressBookHashMap.entrySet();
-                    System.out.println("Enter city or state : ");
-                    String location = sc.next();
-                    if (addressBook2.isEmpty()){
-                        System.out.println("No address books available!");
-                    }
-                    for (Map.Entry entry :  addressBook2){
-                        System.out.println(entry.getKey());
-                        AddressBook addBook = (AddressBook) entry.getValue();
-                        addBook.searchByCityOrState(location);
-                    }
-                    break;
-                case 11:
-                    System.out.println("1. View by city 2.View by state");
-                    int in = sc.nextInt();
-                    switch (in){
-                        case 1:
-                            System.out.println("Enter city :");
-                            String city = sc.next();
-                            AddressBook.viewContactByCity(addressBookHashMap,city);
-                            break;
-                        case 2:
-                            System.out.println("Enter state :");
-                            String state = sc.next();
-                            AddressBook.viewContactByState(addressBookHashMap, state);
-                            break;
-                    }
-                    break;
-                case 12:
-                    System.out.println("Enter city name");
-                    AddressBook.getCountByCity(addressBookHashMap,sc.next());
-                    break;
-                case 13:
-                    System.out.println("1.sort by name \t2.sort by City \t3.sort by State");
-                    int sort = sc.nextInt();
-                    switch (sort){
-                        case 1:
-                            AddressBook.sortByName(addressBookHashMap);
-                            break;
-                        case 2:
-                            AddressBook.sortByCity(addressBookHashMap);
-                            break;
-                        case 3:
-                            AddressBook.sortByState(addressBookHashMap);
-                            break;
                     }
                     break;
                 default:
